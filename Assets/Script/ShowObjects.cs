@@ -7,23 +7,39 @@ public class ShowObjects : MonoBehaviour
     public GameObject starObject;
     public GameObject diamondObject;
 
+    private bool showingStar;
+    private bool showingDiamond;
+
     // Start is called before the first frame update
     void Start()
     {
         starObject.SetActive(false);
         diamondObject.SetActive(false);
+        showingStar = false;
+        showingDiamond = false;
     }
 
     public void ShowStar()
     {
-        starObject.SetActive(true);
-        diamondObject.SetActive(false);
+        // If diamond is not showing or we want to prioritize showing star
+        if (!showingDiamond || !showingStar)
+        {
+            showingStar = true;
+            showingDiamond = false;
+            starObject.SetActive(true);
+            diamondObject.SetActive(false);
+        }
     }
 
     public void ShowDiamond()
     {
-        starObject.SetActive(false);
-        diamondObject.SetActive(true);
+        // If star is not showing or we want to prioritize showing diamond
+        if (!showingStar || !showingDiamond)
+        {
+            showingDiamond = true;
+            showingStar = false;
+            starObject.SetActive(false);
+            diamondObject.SetActive(true);
+        }
     }
-
 }
