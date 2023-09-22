@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Multi-Input.unity
+    guid: eb63aa62f8db93d45b3ec9a5c831f6c6
   m_configObjects: {}
